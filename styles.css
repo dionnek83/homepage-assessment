@@ -21,6 +21,9 @@ p{
     max-width: 800px;
     margin: 0 auto;
 }
+.column h1{
+    text-align: center;
+}
 
 .hero-title{
     text-align: center;
@@ -31,25 +34,26 @@ p{
 }
 
 .circle {
-    width: 150px; /* Outer size of the circle */
+    width: 150px; 
     height: 150px;
     border-radius: 50%; 
-    overflow: hidden; /* Ensures the image stays within the circular boundary */
+    overflow: hidden; 
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #ccc; /* Optional: Add a border */
-    padding: 20px; /* Adds padding inside the circle */
-    box-sizing: border-box; /* Ensures padding is included in the width/height */
+    border: 2px solid #ccc; 
+    padding: 20px; 
+    box-sizing: border-box; 
     border: none;
     margin: 0  auto 1rem; 
+   text-align: center;
 }
 
 .circle img {
     width: 100%; 
     height: 100%; 
-    /* border-radius: 50%;  */
-    object-fit: contain; /* Ensures the entire image is visible without cropping */
+   
+    object-fit: contain;
 }
 .food-split-image{
     max-width: 500px;
@@ -69,29 +73,30 @@ p{
 
 .row{
     padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+  grid-template-columns: 1fr; 
    
 }
 
 .list-item{
    
-    /* padding: 0 auto;
-margin: 2rem 0;
-text-align: center; */
-display: flex;
-flex-direction: column;
+   text-align: center;
+display: grid;
+grid-template-columns: 1fr; 
 margin: 2rem 0;
 }
 .list-item p {
     max-width: 280px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .call-to-action{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: 1fr; 
     padding: 0 2rem;
 }
 
@@ -113,6 +118,7 @@ margin: 2rem 0;
     justify-content: space-between;
     padding: 1.5rem 0;
     text-align: center;
+    margin: 0 auto;
 }
 
 
@@ -173,17 +179,23 @@ img{
 
 /* Styles for tablets (768px and above) */
 @media only screen and (min-width: 768px) {
+
+ 
     .list-item{
-        
-      flex-direction: row;
-      text-align: left;
-   justify-content: center;
+    
      
+   grid-template-columns: repeat(2, 1fr); 
+   text-align: left;
+     
+    }
+    .list-item p{
+        text-align: left;
+        margin: 0;
     }
   
 
     .circle{
-       margin: 0 2rem 0 0;
+        text-align: center;
         width: 80px;
         height: 80px;
         
@@ -206,7 +218,9 @@ img{
     font-size: 3rem;
    }
    .points {
-    display: flex;
+   
+    display: grid;
+    grid-template-columns: 1fr; 
     text-align: left;
     max-width: 450px;
     margin: 0 auto;
@@ -223,22 +237,29 @@ img{
    }
    h1,p{
     text-align: left;
-    margin: 0;
+    
    }
 }
 
-/* Styles for laptops/desktops (1024px and above) */
-@media only screen and (min-width: 1024px) {
-    .container {
-        padding: 30px;
-        background-color: lightcoral;
-    }
+
+@media only screen and (min-width: 998px) {
+
+   .hero .row{
+    
+        
+     grid-template-columns: repeat(3, 1fr); 
+     text-align: left;
+       
+      
+}
+.middle .row, .last .row{
+    grid-template-columns: repeat(2, 1fr); 
+    text-align: left;  
+    gap: 2rem;
+}
+.points{
+    grid-template-columns: repeat(2, 1fr); 
+    text-align: left; 
+}
 }
 
-/* Styles for large desktops (1280px and above) */
-@media only screen and (min-width: 1280px) {
-    .container {
-        padding: 40px;
-        background-color: lightgoldenrodyellow;
-    }
-}
